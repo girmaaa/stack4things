@@ -1,0 +1,3 @@
+Response: {"type": "subscribe", "topic": "temperature_updates"}
+Sent: {"type": "data", "topic": "temperature_updates", "payload": {"temperature": 23.5, "unit": "C"}}
+Received: {"type": "data", "topic": "temperature_updates", "payload": {"temperature": 23.5, "unit": "C"}}

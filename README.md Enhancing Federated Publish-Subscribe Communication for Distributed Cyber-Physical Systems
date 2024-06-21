@@ -1,0 +1,16 @@
+# stack4things
+
+Project Overview
+Title: Enhancing Federated Publish-Subscribe Communication for Distributed Cyber-Physical Systems
+
+Overview
+The project aims to enhance real-time communication in Distributed Cyber-Physical Systems (CPS) through a federated publish-subscribe model using WebSocket technology. It consists of two main components: a super broker and client application. The super broker acts as a centralized hub for managing subscriptions and distributing real-time data among multiple clients.
+
+How to Run
+Super Broker:
+
+Navigate to the superbroker directory:
+
+cd ~/stack4things/superbroker
+
+

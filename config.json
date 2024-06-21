@@ -1,0 +1,17 @@
+{
+  "crossbar": {
+    "realm": "realm1",
+    "url": "ws://localhost:8080/ws"
+  },
+  "superbroker": {
+    "host": "localhost",
+    "port": 8000
+  },
+  "client": {
+    "id": "client1",
+    "secret": "your-secret-key"
+  },
+  "database": {
+    "url": "sqlite:///database.db"
+  }
+}
