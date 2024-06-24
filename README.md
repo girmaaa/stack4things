@@ -285,6 +285,8 @@ Adjust the paths (path/to/superbroker and path/to/superclient) based on where yo
 
 
 Additional Notes
+Token
+Using tokens in your project enhances security, scalability, and performance. Tokens enable secure, stateless authentication and authorization, making them ideal for modern distributed systems. By implementing token expiration and secret rotation, you further strengthen the security of your system, ensuring that even if a token or secret is compromised, it can only be used for a limited time. This approach helps you maintain a secure and robust communication system for your Distributed Cyber-Physical Systems project.
 Troubleshooting Tips:
 
 If you encounter "address already in use" errors when starting the server (superbroker.py), try changing the port number or ensure no other application is using the same port.
