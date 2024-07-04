@@ -1,24 +1,38 @@
 import asyncio
 import websockets
+import asyncio
+import websockets
 import json
+import mariadb
+from mariadb import connect
 
-async def handle_client(websocket, path):
-    async for message in websocket:
-        data = json.loads(message)
-        if "token" in data and "secret" in data:
-            print(f"Received token message: {data}")
-            response = {"status": "authenticated"}
-            await websocket.send(json.dumps(response))
-        elif "type" in data and data["type"] == "data":
-            print(f"Received test message: {data}")
-            response = {"status": "message_received"}
-            await websocket.send(json.dumps(response))
+# MariaDB configuration
+db_config = {
+    'host': 'localhost',
+    'user': 'girmaaa',
+    'password': '@Ritagirma123@',
+    'database': 'stack4things'
+}
+
+# Function to handle database operations
+async def execute_db_query(query, args=None):
+    try:
+        conn = await connect(**db_config)
+        cursor = await conn.cursor()
+        if args:
+            await cursor.execute(query, args)
         else:
-            response = {"status": "error", "message": "Invalid message"}
-            await websocket.send(json.dumps(response))
+            await cursor.execute(query)
+        if query.lower().startswith('select'):
+            rows = await cursor.fetchall()
+            return rows
+        else:
+            await conn.commit()
+    except mariadb.Error as e:
+        print(f"Error connecting to MariaDB Platform: {e}")
+    finally:
+        await cursor.close()
+        await conn.close()
 
-start_server = websockets.serve(handle_client, "localhost", 8889)
-
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+# WebSocket server handler and other functions remain the same as previously provided
 
